@@ -1,1 +1,5 @@
-%h1 Its a Broadway App !
+- @plays.each do |play|
+  %h2= link_to play.title, play_path(play)
+
+%br
+= link_to "Add Play", new_play_path
