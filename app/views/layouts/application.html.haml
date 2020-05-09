@@ -4,8 +4,10 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'
+    = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'
+    = javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
 
   %body
     %nav.navbar.navbar-inverse
@@ -19,6 +21,14 @@
             %li= link_to 'Join', new_user_registration_path
             %li= link_to 'Sign In', new_user_session_path
         %ul.nav.navbar-nav
+          %li.dropdown
+            %a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "area-expanded" => "false"}
+              Sort
+              %span.caret
+            %ul.dropdown-menu{"role" => "menu"}
+              - Category.all.each do |category|
+                %li{ :class => ("active" if params[:category] == category.name?) }
+                  = link_to category.name, plays_path(category: category.name), class: "link"
           - if user_signed_in?
             %li= link_to 'Add Play', new_play_path
     .container

@@ -1,2 +1,10 @@
-- @plays.each do |play|
-  %h2= link_to play.title, play_path(play)
+%h1.current-category= params[:category]
+
+- if @plays.count ==0
+  %h3 There are no Plays in this Category
+- else
+  .row
+    - @plays.each do |play|
+      .col-md-3
+        %a{:href => "/plays/%= play.id"}
+          = image_tag play.play_img, class: 'play'
