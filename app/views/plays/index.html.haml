@@ -6,5 +6,5 @@
   .row
     - @plays.each do |play|
       .col-md-3
-        %a{:href => "/plays/%= play.id"}
-          = image_tag play.play_img, class: 'play'
+        %a{:href => "/plays/#{play.id}"}
+          = image_tag play.play_img.variant(resize: "250x350>")
