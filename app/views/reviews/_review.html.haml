@@ -1,9 +1,0 @@
-.review
-  %div.review-rating{ "data-score" => "#{review.rating}" }
-  %p.review-comment= review.comment
-
-  - if user_signed_in?
-    - if review.user_id == current_user.id
-      .links.btn-group
-        = link_to "Edit", edit_play_review_path(review.play, review), class: "btn btn-custom"
-        = link_to "Delete", play_review_path(review.play, review), method: :delete, data: { confirm: "Are you sure you want to delete?" }, class: "btn btn-custom"
