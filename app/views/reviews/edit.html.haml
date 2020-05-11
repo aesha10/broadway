@@ -2,14 +2,17 @@
   .edit-review-form
     %h1 Edit Review
     = simple_form_for ([@play, @review]) do |f|
-      #rating-form
-        %label Rating
+      %label Rating
+      %div#rating-form{ "data-score" => "#{@review.rating}"}
       = f.input :comment
       = f.button :submit, class: "btn-custom2"
 
 :javascript
   $(document).ready(function() {
     $("#rating-form").raty({
+      score: function() {
+        return $(this).attr('data-score');
+        },
       path: '/assets/',
       scoreName: 'review[rating]'
     });

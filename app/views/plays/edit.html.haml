@@ -1,21 +1,23 @@
-%h1 Edit Broadway Play
+.col-md-10.col-md-offset-1
+  .new-play-form
+    %h1 Edit Broadway Play
 
-= simple_form_for @play, html: {multipart: true} do |f|
-  -if @play.errors.any?
-    %h2= pluralize(@play.errors.count,"error")
-    Prevented this Play from saving
-    %ul
-      @play.errors.full_messages.each do |msg|
-      %li= msg
-  .form-group
-    = f.file_field :play_img
-  .form-group
-    = f.select :category_id, @categories
-  .form-group
-    = f.input :title, label: "Play Title", input_html: {class: 'form-control'}
-  .form-group
-    = f.input :description, input_html: {class: 'form-control'}
-  .form-group
-    = f.input :director, input_html: {class: 'form-control'}
+    = simple_form_for @play, html: {multipart: true} do |f|
+      -if @play.errors.any?
+        %h2= pluralize(@play.errors.count,"error")
+        Prevented this Play from saving
+        %ul
+          @play.errors.full_messages.each do |msg|
+          %li= msg
+      .form-group
+        = f.file_field :play_img
+      .form-group
+        = f.select :category_id, @categories
+      .form-group
+        = f.input :title, label: "Play Title", input_html: {class: 'form-control'}
+      .form-group
+        = f.input :description, input_html: {class: 'form-control'}
+      .form-group
+        = f.input :director, input_html: {class: 'form-control'}
 
-  = f.button :submit, class: 'btn btn-primary'
+      = f.button :submit, class: 'btn btn-primary'

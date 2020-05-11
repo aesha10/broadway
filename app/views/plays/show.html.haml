@@ -16,6 +16,11 @@
       = @play.reviews.count
       reviewers
       %p.play-desc= @play.description
+      .links.btn-group
+        - if user_signed_in?
+          - if @play.user_id == current_user.id
+            = link_to "Edit", edit_play_path(@play), class: "btn btn-custom"
+            = link_to "Delete", play_path(@play), method: :delete, data: {confirm: "Are you sure you want to delete"}, class: "btn btn-custom"
 
 .row
   .col-md-12
@@ -24,12 +29,6 @@
       = render @play.reviews
       %div
         = link_to 'Add Reviews', new_play_review_path(@play), class: 'btn-custom'
-
-.links.btn-group
-  - if user_signed_in?
-    - if @play.user_id == current_user.id
-      = link_to "Edit", edit_play_path(@play), class: "btn btn-custom"
-      = link_to "Delete", play_path(@play), method: :delete, data: {confirm: "Are you sure you want to delete"}, class: "btn btn-custom"
 
 :javascript
   $(document).ready(function() {
