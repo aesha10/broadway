@@ -1,0 +1,20 @@
+= simple_form_for @play do |f|
+  -if @play.errors.any?
+    %h2= pluralize(@play.errors.count,"error")
+    Prevented this Play from saving
+    %ul
+      @play.errors.full_messages.each do |msg|
+      %li= msg
+
+  .form-group
+    = f.file_field :play_img
+  .form-group
+    = select_tag(:category_id, options_for_select(@categories), :prompt => "Select Category")
+  .form-group
+    = f.input :title, label: "Play Title", input_html: {class: 'form-control'}
+  .form-group
+    = f.input :description, input_html: {class: 'form-control'}
+  .form-group
+    = f.input :director, input_html: {class: 'form-control'}
+
+  = f.button :submit, class: 'btn btn-primary'
