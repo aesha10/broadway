@@ -27,8 +27,7 @@
 /storage/*
 !/storage/.keep
 
-/public/assets/*
-!/public/assets/jquery.raty.js
+/public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
