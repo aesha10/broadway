@@ -29,6 +29,7 @@
 
 /public/assets/*
 !/public/assets/jquery.raty.js
+!/public/assets/star-*
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
