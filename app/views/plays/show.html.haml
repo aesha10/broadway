@@ -1,6 +1,6 @@
 .row
   .col-md-4
-    = image_tag @play.play_img.variant(resize: "325x475>")
+    = image_tag @play.play_img.variant(resize: "325x475>"), class: 'play-show'
   .col-md-8
     .play-info
       %h2.play-title= @play.title

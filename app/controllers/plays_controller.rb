@@ -27,7 +27,7 @@ class PlaysController < ApplicationController
   def create
     @play=current_user.plays.build(play_params)
     @play.category_id=params[:category_id]
-    @play.play_img.attach(params[:article][:play_img])
+    @play.play_img.attach(params[:play][:play_img])
     if @play.save
       redirect_to root_path
     else
