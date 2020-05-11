@@ -1,6 +1,13 @@
 = simple_form_for ([@play, @play.reviews.build]) do |f|
   #rating-form
-    = f.input :rating
+    %label Rating
   = f.input :comment
   = f.button :submit, class: "btn-custom2"
 
+:javascript
+  $(document).ready(function() {
+    $("#rating-form").raty({
+      path: '/assets/',
+      scoreName: 'review[rating]'
+    });
+  });

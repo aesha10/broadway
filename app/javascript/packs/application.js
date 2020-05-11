@@ -4,9 +4,12 @@
 // that code so it'll be compiled.
 
 //= require rails-ujs
+//= require jquery
+//= require jquery_ujs
+//= require ../../../public/assets/jquery.raty.js
 //= require bootstrap-sprockets
 //= require turbolinks
-//= require_tree .
+
 
 $(document).ready(function() {
     $('.dropdown-toggle').dropdown()
